@@ -1,0 +1,60 @@
+:root {
+    --primary: #FF6B35;
+    --secondary: #00A5E0;
+}
+
+body {
+    background: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 800px;
+}
+
+.step-container {
+    min-height: 70vh;
+    padding: 2rem 0;
+}
+
+.step {
+    display: none;
+}
+
+.step.active {
+    display: block;
+}
+
+/* Theme Selection */
+.theme-card {
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    transition: all 0.3s;
+}
+
+.theme-card.active {
+    border-color: var(--primary);
+}
+
+.theme-img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Preview */
+.preview-container {
+    border: 2px solid #ddd;
+    padding: 10px;
+    border-radius: 10px;
+    background: white;
+    text-align: center;
+}
+
+.preview-img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}

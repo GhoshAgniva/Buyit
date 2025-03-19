@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyit Onboarding</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container py-5">
+        <div class="step-container">
+            <!-- Step 1: Theme Selection -->
+            <div class="step active" data-step="1">
+                <h2 class="text-center mb-4">Choose Your Theme</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="theme-card text-center">
+                            <img src="Theme1.jpg" class="theme-img" alt="Theme 1">
+                            <button class="btn btn-primary mt-3" onclick="applyTheme(1)">Apply</button>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="theme-card text-center">
+                            <img src="Theme2.jpg" class="theme-img" alt="Theme 2">
+                            <button class="btn btn-primary mt-3" onclick="applyTheme(2)">Apply</button>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="theme-card text-center">
+                            <img src="Theme3.jpg" class="theme-img" alt="Theme 3">
+                            <button class="btn btn-primary mt-3" onclick="applyTheme(3)">Apply</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Product Information -->
+            <div class="step" data-step="2">
+                <h2 class="text-center mb-4">Product Information</h2>
+                <div class="mb-3">
+                    <label class="form-label">Product Type <span class="text-danger">*</span></label>
+                    <input type="text" id="productType" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Category (Optional)</label>
+                    <input type="text" id="productCategory" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Subcategory (Optional)</label>
+                    <input type="text" id="productSubcategory" class="form-control">
+                </div>
+            </div>
+
+            <!-- Step 3: Product Preview and Pricing -->
+            <div class="step" data-step="3">
+                <h2 class="text-center mb-4">Product Details</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label">Product Name</label>
+                        <input type="text" id="productName" class="form-control" oninput="updatePreview()">
+
+                        <label class="form-label mt-3">Product Description</label>
+                        <textarea id="productDescription" class="form-control" rows="3" oninput="updatePreview()"></textarea>
+
+                        <label class="form-label mt-3">Upload Image</label>
+                        <input type="file" class="form-control" accept="image/*" onchange="uploadImage(event)">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="preview-container">
+                            <img id="previewImg" class="preview-img" src="https://via.placeholder.com/200" alt="Product Image">
+                            <h4 id="previewName">Product Name</h4>
+                            <p id="previewDescription"></p>
+                            <h5>Pricing:</h5>
+                            <p id="priceDetails"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pricing Details -->
+                <h5 class="mt-4">Pricing Details</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label">List Price</label>
+                        <input type="number" id="listPrice" class="form-control" oninput="calculatePrice()">
+                        <label class="form-label mt-3">GST Rate (%)</label>
+                        <input type="number" id="gstRate" class="form-control">
+                        <label class="form-label mt-3">Net Price</label>
+                        <input type="number" id="netPrice" class="form-control" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Discount (%)</label>
+                        <input type="number" id="discountPercentage" class="form-control" oninput="calculatePrice()">
+                        <label class="form-label mt-3">Shipping Charges</label>
+                        <input type="number" id="shippingCharges" class="form-control">
+                        <label class="form-label mt-3">Stock Level</label>
+                        <input type="number" id="stockLevel" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="d-flex justify-content-between mt-4">
+            <button class="btn btn-secondary" onclick="previousStep()">Back</button>
+            <button class="btn btn-primary" onclick="nextStep()">Next</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
